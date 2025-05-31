@@ -1,0 +1,118 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Client.cpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bmakhama <bmakhama@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/08 13:59:47 by bmakhama          #+#    #+#             */
+/*   Updated: 2025/05/30 11:23:51 by bmakhama         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "Client.hpp"
+
+Client::Client()
+{
+    _fd = -1;
+    _buffer = "";
+    _nickname = "";
+    _username = "";
+    _realname = "";
+    _registered = false;
+    _authenticated = false;
+}
+
+Client::~Client() {}
+
+// ------------ GETTERS -----------------
+std::string &Client::getBuffer()
+{
+    return _buffer;
+}
+
+int Client::getFd() const
+{
+    return (_fd);
+}
+
+bool Client::isAuthenticated() const
+{
+    return (_authenticated);
+}
+
+std::string &Client::getNickname()
+{
+    return (_nickname);
+}
+
+std::string &Client::getUsername()
+{
+    return (_username);
+}
+
+std::string &Client::getRealname()
+{
+    return (_realname);
+}
+
+// -----------------------------------
+
+bool Client::isRegistered() const
+{
+    return (_registered);
+}
+
+std::string Client::getPrefix() const
+{
+    return _nickname + "!" + _username + "@" + _hostname;
+}
+
+std::string Client::getHostname() const
+{
+    return _hostname;
+}
+
+// ---------- SETTERS -----------------------
+void Client::setBuffer(const std::string &buffer)
+{
+    _buffer = buffer;
+}
+
+void Client::setFd(int fd)
+{
+    _fd = fd;
+}
+
+void Client::setAuthenticated(bool authenticated)
+{
+    _authenticated = authenticated;
+}
+
+void Client::setNickname(const std::string &nickname)
+{
+    _nickname = nickname;
+}
+
+void Client::setUsername(const std::string &username)
+{
+    _username = username;
+}
+
+void Client::setRealname(const std::string &realname)
+{
+    _realname = realname;
+}
+
+void Client::setRegistered(bool registered)
+{
+    _registered = registered;
+}
+
+void Client::setHostname(const std::string& hostname)
+{
+    _hostname = hostname;
+}
+
+
+
